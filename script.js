@@ -1,6 +1,14 @@
 "use strict";
 
+console.log("Made with 💩 - Brian Bixby");
+
 var genButton = document.querySelector("#generate");
+var length = 8;
+var lowercase = true;
+var uppercase = true;
+var numeric = true;
+var specialChars = true;
+//  length 8 - 128
 
 function generatePassword(){
   //TODO: your code goes here
@@ -19,8 +27,11 @@ function writePassword() {
 
 }
 
+function dispatch() {
+  
+}
+
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
 
 
 // assign variables
@@ -40,3 +51,5 @@ generateBtn.addEventListener("click", writePassword);
 // special chars?
 
 // generating returned password
+
+genButton.addEventListener("click", dispatch());
