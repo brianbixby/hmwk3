@@ -1,6 +1,6 @@
 "use strict";
 
-console.log("Made with 💩 - Brian Bixby");
+console.log("Made with 🔥 - Brian Bixby");
 
 function lengthPrompt(retry = false) {
   let length;
