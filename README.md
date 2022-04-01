@@ -8,7 +8,7 @@ This app enables users to generate random passwords based on criteria that theyâ
 
 The following image shows the web application's appearance and functionality:
 
-![The Password Generator application displays a red button to "Generate Password".](./assets/03-javascript-homework-demo.png)
+![The Password Generator application displays a red button to "Generate Password".](./assets/images/03-javascript-homework-demo.png)
 
 ## Link
 
