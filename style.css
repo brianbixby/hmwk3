@@ -135,3 +135,15 @@ button[disabled] {
     font-size: 0.8rem;
   }
 }
+
+@media (max-width: 400px) {
+  h1 {
+    font-size: 23px;
+  }
+  h2 {
+    font-size: 18px;
+  }
+  #password {
+    height: 200px;
+  }
+}
