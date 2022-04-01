@@ -18,17 +18,23 @@ function lengthPrompt(retry = false) {
   }
 }
 
-function charachterPrompt(charType, retry = false) {
-  let promptText = `Would you like to include ${charType} in your password? (yes/no)`;
-
-  if (retry) promptText = `Please try again, your last input was invalid. ${promptText}`;
-
-  let userAnswer = window.prompt(promptText, "yes");
-  if (userAnswer === null) return userAnswer;
-  userAnswer = userAnswer.trim().toLowerCase();
-  return userAnswer == "yes" ? true : userAnswer == "no" ? false : charachterPrompt(charType, true);
-  // return (userAnswer !== "yes" && userAnswer !== "no") ? charachterPrompt(charType, true) : userAnswer;
+function charachterPrompt(charType) {
+  let userAnswer = window.confirm(`Would you like to include ${charType} in your password?`);
+  return userAnswer;
 }
+
+// ****  I kept the below commented out code in the repo on purpose  ****
+// ****  I might change the confirmation questions to prompts in the future ****
+// function charachterPrompt(charType, retry = false) {
+//   let promptText = `Would you like to include ${charType} in your password? (yes/no)`;
+
+//   if (retry) promptText = `Please try again, your last input was invalid. ${promptText}`;
+
+//   let userAnswer = window.prompt(promptText, "yes");
+//   if (userAnswer === null) return userAnswer;
+//   userAnswer = userAnswer.trim().toLowerCase();
+//   return userAnswer == "yes" ? true : userAnswer == "no" ? false : charachterPrompt(charType, true);
+// }
 
 function generatePassword() {
   // PROMPTS
@@ -36,14 +42,9 @@ function generatePassword() {
   length = lengthPrompt();
   if (length === null) return '';
   lowercase = charachterPrompt("lowercase letters");
-  if (lowercase === null) return '';
   uppercase = charachterPrompt("uppercase letters");
-  if (uppercase === null) return '';
   numeric = charachterPrompt("numbers");
-  if (numeric === null) return '';
   specialChars = charachterPrompt("special charachters");
-  if (specialChars === null) return '';
-  console.log("length:", length, "lowercase:", lowercase, "uppercase:", uppercase, "numeric:", numeric, "specialChars:", specialChars);
   if (!lowercase && !uppercase && !numeric && !specialChars) {
     let resubmit = window.confirm("At least one character type must be selected (lowercase, uppercase, numeric or special chachters). Please click okay if you would like to try again.");
     return resubmit ? generatePassword() : '';
@@ -52,7 +53,7 @@ function generatePassword() {
   var uppercaseArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
   var lowercaseArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
   var numericArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-  var specialCharsArray = [" ", "!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~", "]"];
+  var specialCharsArray = [" ", "!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~", "]"];
   var charachtersArray = [];
   var password = "";
 
